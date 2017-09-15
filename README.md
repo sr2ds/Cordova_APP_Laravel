@@ -1,7 +1,7 @@
 ## Objetivo
-A intenção deste projeto é facilitar o desenvolvimento de aplicativos simples, onde frameworks mais parrudos como Angular, ionic ou meteor são necessários.
+A intenção deste projeto é facilitar o desenvolvimento de aplicativos simples, onde frameworks mais parrudos como Angular, ionic ou meteor não são necessários.
 
-Na pasta www você vai encontrar o frontend funcional (em breve) com recursos simples para troca de página e o principal, autenticação com Laravel de forma simples. Ou seja, rotas, páginas e todos os controles necessários para o cadastro de usuário + autenticação através de REST API com o Laravel.
+Na pasta www você vai encontrar o frontend funcional com recursos simples para troca de página e autenticação com Laravel de forma simples (em breve). Ou seja, rotas, páginas e todos os controles necessários para o cadastro de usuário + autenticação através de REST API com o Laravel.
 
 Talvez possamos incluir aqui uma estrutura basica do laravel pronto para isso funcionar, ou até mesmo criar um package que crie a API do auth parão do laravel.
 
