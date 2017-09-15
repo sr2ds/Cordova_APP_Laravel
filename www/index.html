@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="pt_BR">
+<head>
+	<meta charset="UTF-8">
+	<meta content="IE=edge" http-equiv="X-UA-Compatible">
+	<meta content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no, width=device-width" name="viewport">
+	<meta name="format-detection" content="telephone=no">
+	<meta name="msapplication-tap-highlight" content="no">
+	<meta http-equiv="Cache-control" content="public">
+	<title></title>
+	<link href="css/base.css" rel="stylesheet">
+	<link href="css/font-awesome.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="css/materialize.min.css">
+	<style type="text/css"> .menuFixo {position: fixed;top: 0;z-index: 99;} </style>
+</head>
+<body>
+	<nav>
+		<div class="nav-wrapper orange darken-3">
+			<a href="#" class="brand-logo title">
+			</a>
+			<a href="#" data-activates="slide-out" class="button-collapse">
+				<i class="fa fa-bars"></i>
+			</a>
+			<ul id="slide-out" class="side-nav">
+				<li>
+					<div class="userView">
+						<a href="#!user">
+							<img class="img-responsive logo" src=""></a>
+						</div>
+					</li>
+					<li><a class="inicio" href="#login">Login</a></li>
+					<li><a class="inicio" href="#inicio">Inicio</a></li>
+					<li><a class="" href="#tabela_basica">Tabela Basica</a></li>
+					<li><div class="divider"></div></li>
+					<li><a class="" href="#form_basico">Form Basico</a></li>
+				</ul>
+			</div>
+		</nav>
+
+		<div class="content-default">
+			<div class="col s12 menu">
+				<ul class="tabs">
+					<li class="tab col s3"><a class="active" href="#" id='titulo'>Inicio</a></li>
+				</ul>
+			</div>
+
+			<section id="inicio" class="col s12">
+				<div class="row">
+					<div class="col s12 m5">
+						<div class="card-panel grey">
+							<span class="white-text">Exemplo
+							</span>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section id="tabela_basica" class="col s12" style="display: none">
+				<div class="row">
+					<div class="col s12 m5">
+						<h6 class="center-align">Tabela Basica</h6>
+						<table class="striped z-depth-2">
+							<thead>
+								<tr>
+									<th>Nome</th>
+									<th>Git</th>
+									<th>Data</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>David </td>
+									<td>github.com/srdavidsilva</td>
+									<td>15/09/2017</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</section>
+
+			<section id="form_basico" class="col s12" style="display: none">
+				<div class="row">
+					<div class="col s12 m5">
+						<br>
+						<div class="row">
+							<div class="input-field col s12">
+								<input id="password" type="text" class="validate">
+								<label for="password">Nome</label>
+							</div>
+						</div>
+						<div class="row">
+							<div class="input-field col s12">
+								<input id="email" type="email" class="validate">
+								<label for="email">Email</label>
+							</div>
+						</div>
+						<button class="btn waves-effect waves-light" type="submit" name="action">Cadastrar </button>
+					</div>
+				</div>
+			</section>
+
+			<section id='login' class="col s12" style="display: none">
+				<div class="row">
+					<div class="col s12 m7">
+						<div class="card">
+							<div class="center">
+								<br>
+								<img class="logo" src="">
+							</div>
+							<div class="card-content">
+								<div class="row">
+									<div class="input-field col s12">
+										<input id="email" type="email" class="validate">
+										<label for="email">Email</label>
+									</div>
+								</div>
+								<div class="row">
+									<div class="input-field col s12">
+										<input id="password" type="password" class="validate">
+										<label for="password">Senha</label>
+									</div>
+								</div>
+
+							</div>
+							<div class="card-action center">
+								<button class="btn waves-effect waves-light" type="submit" name="action">Entrar</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		</div>
+	</body>
+
+	<script src="js/jquery.min.js"></script>
+	<script src="js/materialize.min.js"></script>
+	<script>
+  // Funcao Principal do Cordova - Todos plugins so funcionam aqui - OnDeviceReady
+  function onDeviceReady() {
+  	document.removeEventListener('deviceready', onDeviceReady, false);
+
+    /* Google Admob */
+    // initAds();
+    // admob.createBannerView();
+    // admob.requestInterstitialAd();
+
+    /* Google Analytics */
+    // window.ga.startTrackerWithId('');
+    // window.ga.trackView('Tela Inicio');
+
+    /* Notificacoes locais agendadas */
+    // cordova.plugins.notification.local.schedule({text: textoNot, every: "day"},
+    //  function(){calbackNot = textoNot;console.log(calbackNot)}
+    //  );
+
+    /* Config da OneSignal para envio e Push Notifications */
+    // var notificationOpenedCallback = function(jsonData) {};
+    // window.plugins.OneSignal.init("",
+    //  {googleProjectNumber: ""}, notificationOpenedCallback);
+    // window.plugins.OneSignal.enableInAppAlertNotification(true);
+
+    /* InAppBrowser */
+    // window.open = cordova.InAppBrowser.open;
+
+  }
+  // Executa a funcao criada acima
+  document.addEventListener("deviceready", onDeviceReady, false);
+</script>
+
+<script src="js/auth.js"></script>
+<script src="js/base.min.js" async></script>
+<script src="js/fastclick.js" async></script>
+<script src="cordova.js"></script>
+<script src="js/admob.js" async></script>
+<script src="js/documentReady.js" async></script>
+</html>

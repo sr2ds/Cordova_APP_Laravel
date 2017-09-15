@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt_BR">
+<head>
+	<meta charset="UTF-8">
+	<meta content="IE=edge" http-equiv="X-UA-Compatible">
+	<meta content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no, width=device-width" name="viewport">
+	<meta name="format-detection" content="telephone=no">
+	<meta name="msapplication-tap-highlight" content="no">
+	<title>Indiretas</title>
+	<link href="css/base.css" rel="stylesheet">
+	<!-- <link href="css/project.min.css" rel="stylesheet"> -->
+	<link href="css/font-awesome.min.css" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<!-- <link href="css/bootstrap.min.css" rel="stylesheet"> -->
+	<link rel="stylesheet" href="css/materialize.min.css">
+	<script src="js/jquery.min.js"></script>
+	<script src="js/materialize.min.js"></script>
+	<script>
+  // Funcao Principal do Cordova - Todos plugins so funcionam aqui - OnDeviceReady
+  function onDeviceReady() {
+  	document.removeEventListener('deviceready', onDeviceReady, false);
+    // Inicia Lib do AdMob
+    // initAds();
+    // Exibe Banner ao iniciar o APP
+    // admob.createBannerView();
+
+    // Configura Schedule Diario do Plugin Local Notifications - Implementado em 15/08/2016
+    cordova.plugins.notification.local.schedule({text: dados(), every: "day"});
+    var notificationOpenedCallback = function(jsonData) {};
+    window.plugins.OneSignal.init("b882ee50-9fee-45bb-ad16-620483e07519",
+    	{googleProjectNumber: "357417793754"}, notificationOpenedCallback);
+    window.plugins.OneSignal.enableInAppAlertNotification(true);
+    montaListaIndiretasCadastradas();
+
+    // select the right Ad Id according to platform
+    if( /(android)/i.test(navigator.userAgent) ) { 
+      admobid = { // for Android
+      	banner: 'ca-app-pub-4298730028172354/6546899824',
+      	interstitial: 'ca-app-pub-4298730028172354/7260080221'
+      };
+  } else if(/(ipod|iphone|ipad)/i.test(navigator.userAgent)) {
+      admobid = { // for iOS
+      	banner: 'ca-app-pub-4298730028172354/6546899824',
+      	interstitial: 'ca-app-pub-4298730028172354/7260080221'
+      };
+  } else {
+      admobid = { // for Windows Phone
+      	banner: 'ca-app-pub-4298730028172354/6546899824',
+      	interstitial: 'ca-app-pub-4298730028172354/7260080221'
+      };
+  }
+
+  if(AdMob) AdMob.createBanner({position:AdMob.AD_POSITION.BOTTOM_CENTER});
+}
+  // Executa a funcao criada acima
+  document.addEventListener("deviceready", onDeviceReady, false);
+</script>
+</head>
+
+<body>
+	<nav>
+		<div class="nav-wrapper red darken-3">
+			<a href="#" class="brand-logo">Indiretas
+			</a>
+			<a href="#" data-activates="slide-out" class="button-collapse">
+				<i class="material-icons">menu</i>
+			</a>
+			<ul id="slide-out" class="side-nav">
+				<li>
+					<div class="userView">
+						<a href="#!user"><img class="circle" src="img/logo.png"></a>
+						<a href="#!name"><span class="white-text name">Nome do Usuario</span></a>
+						<a href="#!email"><span class="white-text email"></span></a>
+					</div>
+				</li>
+				<!-- <li><div class="divider"></div></li> -->
+				<li><a class="waves-effect" href="index.html">Home</a></li>
+				<li><a class="waves-effect" href="login.html">Fazer Login</a></li>
+				<li><a class="waves-effect modal-trigger " href="#novidades">Novidades</a></li>
+				<li><div class="divider"></div></li>        
+				<li><a class="waves-effect" href="market://details?id=fraseseIndiretas.tisaudavel.com">Avalie este APP!</a></li>
+			</ul>
+		</div>
+	</nav>
+	<div class="">
+		<div class="col s12 menu">
+			<ul class="tabs">
+				<li class="tab col s3"><a class="active" href="#inicio">Inicio</a></li>
+				<!-- <li class="tab col s3"><a href="#test2">Minhas Indiretas</a></li> -->
+				<li class="tab col s3"><a href="#minhasIndiretas">Minhas Indiretas</a></li>
+			</ul>
+		</div>
+		<div id="inicio" class="col s12">
+			<div class="row">
+				<div class="container">
+
+					<p> Agora você pode cadastrar sua Indireta!</p>
+					<p>Iremos colocar as melhores no Aplicativo! Aproveite! </p>
+					<form class="col s12">
+						<div class="input-field col s12">
+							<i class="material-icons prefix">account_circle</i>
+							<input id="userName" type="text" class="validate" placeholder="Seu Nome">
+						</div>
+						<div class="row">
+							<div class="input-field col s12">
+								<i class="material-icons prefix">mode_edit</i>
+								<textarea id="indireta" class="materialize-textarea"></textarea>
+								<label for="icon_prefix2">Indireta</label>
+							</div>
+						</div>
+						<a class="botaoIndireta waves-effect waves-light btn red right"><i class="material-icons right"></i>Cadastrar</a>
+					</form>
+				</div>
+
+				<script src="js/indireta.js"></script>
+				<script src="js/base.min.js"></script>
+				<script src="cordova.js"></script>
+				<!-- <script src="js/admob.js"></script> -->
+				<script src="js/documentReady.js"></script>
+				</html>
