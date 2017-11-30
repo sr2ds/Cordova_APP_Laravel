@@ -22,7 +22,6 @@ $('window').ready(function($) {
 
     /* Chamadas para configurar o APP */
 
-
     // Controles de Auth
     var login = null;
     if (login == null) {
@@ -33,10 +32,22 @@ $('window').ready(function($) {
     }
 
     $('#login_action').on('click', function(e) {
+        // Testar com Curl no SHELL>  curl -d "email=email@email.com&password=senha" -X POST http://backend.app/api/auht/login
         console.clear();
+        var btn = $(this);
+        btn.html('<i class="fa fa-spinner fa-spin"></i>')
         $.post( server+'/api/auth/login', { 'email':$('#email').val(), 'password':$('#password').val() })
         .done(function( data ) {
-            alert( "Data Loaded: " + data );
+            if (data.error) {
+                btn.html(data.error);
+            } else {
+                btn.html(data.success);
+                login = true;
+                $("[href='#inicio']").click();
+                $("[href='#inicio']").show();  
+                $("[href='#login']").hide();
+                storage.setItem('user', JSON.stringify(data));
+            }
         });
     });
 
@@ -78,6 +89,5 @@ $('window').ready(function($) {
             nav.removeClass("menu-fixo"); 
         } 
     });
-
 
 })
