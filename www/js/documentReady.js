@@ -7,7 +7,7 @@ $('window').ready(function($) {
     var title = 'App Base';
     var logo  = '/img/logo.png';
     var backend_server = '';
-    var backend_local = 'http://localhost:8000';
+    var backend_local = 'http://backend.app';
 
     /* Definicoes padroes do APP */
     var storage = window.localStorage;
@@ -31,6 +31,14 @@ $('window').ready(function($) {
         $('#login').show();
         $('#titulo').html('Login');
     }
+
+    $('#login_action').on('click', function(e) {
+        console.clear();
+        $.post( server+'/api/auth/login', { 'email':$('#email').val(), 'password':$('#password').val() })
+        .done(function( data ) {
+            alert( "Data Loaded: " + data );
+        });
+    });
 
     // Grava total de vezes que o usuario ja abriu o APP
     var access  =+ storage.getItem('TotalDeAcessos');

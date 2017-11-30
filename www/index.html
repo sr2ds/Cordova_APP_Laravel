@@ -80,7 +80,7 @@
 			</section>
 
 			<section id="form_basico" class="col s12" style="display: none">
-				<div class="row">
+				<!-- <div class="row">
 					<div class="col s12 m5">
 						<br>
 						<div class="row">
@@ -97,7 +97,7 @@
 						</div>
 						<button class="btn waves-effect waves-light" type="submit" name="action">Cadastrar </button>
 					</div>
-				</div>
+				</div> -->
 			</section>
 
 			<section id='login' class="col s12" style="display: none">
@@ -124,7 +124,7 @@
 
 							</div>
 							<div class="card-action center">
-								<button class="btn waves-effect waves-light" type="submit" name="action">Entrar</button>
+								<button class="btn waves-effect waves-light" id='login_action' type="submit" name="action">Entrar</button>
 							</div>
 						</div>
 					</div>
@@ -140,7 +140,7 @@
   function onDeviceReady() {
   	document.removeEventListener('deviceready', onDeviceReady, false);
 
-    /* Google Admob */
+  	/* Google Admob */
     // initAds();
     // admob.createBannerView();
     // admob.requestInterstitialAd();
@@ -154,7 +154,7 @@
     //  function(){calbackNot = textoNot;console.log(calbackNot)}
     //  );
 
-    /* Config da OneSignal para envio e Push Notifications */
+/* Config da OneSignal para envio e Push Notifications */
     // var notificationOpenedCallback = function(jsonData) {};
     // window.plugins.OneSignal.init("",
     //  {googleProjectNumber: ""}, notificationOpenedCallback);
@@ -163,12 +163,11 @@
     /* InAppBrowser */
     // window.open = cordova.InAppBrowser.open;
 
-  }
+}
   // Executa a funcao criada acima
   document.addEventListener("deviceready", onDeviceReady, false);
 </script>
 
-<script src="js/auth.js"></script>
 <script src="js/base.min.js"></script>
 <script src="js/fastclick.js"></script>
 <script src="cordova.js"></script>
