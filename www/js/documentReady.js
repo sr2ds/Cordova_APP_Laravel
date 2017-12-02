@@ -8,7 +8,7 @@ $('window').ready(function($) {
     var backend_local = 'http://backend.app';
 
     /* Definicoes padroes do APP */
-    var storage = window.localStorage;
+    storage = window.localStorage;
 
     /* Define o server automaticamente para uso posterior */
     server = (navigator.app ? backend_server : backend_local);
@@ -20,12 +20,13 @@ $('window').ready(function($) {
     /* Chamadas para configurar o APP */
 
     // Controles de Auth
-    var login = null;
-    if (login == null) {
+    if (storage.getItem('user') == null) {
         // $('nav').hide();
         $('section').hide();
         $('#login').show();
         $('#titulo').html('Login');
+    } else {
+        logar();
     }
 
     $('#login_action').on('click', function(e) {
@@ -39,14 +40,19 @@ $('window').ready(function($) {
                 btn.html(data.error);
             } else {
                 btn.html(data.success);
-                login = true;
-                $("[href='#inicio']").click();
-                $("[href='#inicio']").show();  
-                $("[href='#login']").hide();
                 storage.setItem('user', JSON.stringify(data));
+                logar();
             }
         });
     });
+
+    // Função que validar se está logado e esconde tela de login
+    function logar() {
+        user = JSON.parse(storage.getItem('user')).user;
+        $("[href='#inicio']").click();
+        $("[href='#inicio']").show();  
+        $("[href='#login']").hide();
+    }
 
     // Grava total de vezes que o usuario ja abriu o APP
     var access  =+ storage.getItem('TotalDeAcessos');
