@@ -1,5 +1,3 @@
-//cordova build android --release -- --keystore="megavarejo.keystore" --storePassword=32843Silva --alias=indiretas
-
 // Funcao Ready - Executa toda vez que o APP for aberto, seja local ou no mobile
 $('window').ready(function($) {
 
@@ -18,7 +16,6 @@ $('window').ready(function($) {
     /* Aplica as alteraçoes no DOM com os parametros definidos no inicio */
     $('title,.title').html(title); // Troca os Titulos
     $('.logo').attr('src', logo); // Troca os Logos
-
 
     /* Chamadas para configurar o APP */
 
